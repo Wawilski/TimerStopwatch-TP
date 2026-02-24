@@ -20,6 +20,7 @@ class TestScenarios {
 
   // This is more a kind of integration test than a real unit test
   @Test
+  @DisplayName("Full Lifecycle: Set timer, pause, switch to stopwatch, and return to ring")
   void completeScenario() {
     assertEquals(IdleTimer.Instance(), c.currentState);
     assertEquals(0, AbstractTimer.getMemTimer());
@@ -92,6 +93,7 @@ class TestScenarios {
 
   // This is more a kind of integration test than a real unit test
   @Test
+  @DisplayName("Timer Expiration: Setting a value, running to zero, and silencing the alarm")
   void ringingScenario() {
     assertEquals(IdleTimer.Instance(), c.currentState);
     assertEquals(0, AbstractTimer.getMemTimer());

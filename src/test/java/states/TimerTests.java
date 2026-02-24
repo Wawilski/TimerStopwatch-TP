@@ -18,6 +18,7 @@ class TimerTests {
   }
 
   @Test
+  @DisplayName("Verify that the Timer starts in the Idle state with zeroed values")
   void testInitialState() {
     /*
      * When initialising the context (see setup() method above)
@@ -33,18 +34,21 @@ class TimerTests {
   }
 
   @Test
+  @DisplayName("Ensure the default sub-state of AbstractTimer is IdleTimer")
   void testInitialAbstractTimer() {
     // The initial state of composite state AbstractTimer should be IdleTimer
     assertSame(AbstractTimer.Instance(), IdleTimer.Instance());
   }
 
   @Test
+  @DisplayName("Ensure the default sub-state of ActiveTimer is RunningTimer")
   void testInitialActiveTimer() {
     // The initial state of composite state ActiveTimer should be RunningTimer
     assertSame(ActiveTimer.Instance(), RunningTimer.Instance());
   }
 
   @Test
+  @DisplayName("Verify that the state machine correctly restores the Timer state using History")
   void testHistoryState() {
     current = AbstractTimer.Instance();
     // after processing the left() event, we should arrive in the initial state of

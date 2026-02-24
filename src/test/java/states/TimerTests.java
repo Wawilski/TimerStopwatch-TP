@@ -18,6 +18,32 @@ class TimerTests {
   }
 
   @Test
+  @DisplayName("Verify that the timer resets using left() in SetTimer")
+  void testSetTimerLeft() {
+    context.tick();
+    context.right();
+
+    context.tick();
+    assertEquals(SetTimer.Instance(), context.currentState);
+    context.left();
+    assertEquals(0, AbstractTimer.getMemTimer());
+
+  }
+
+  @Test
+  @DisplayName("Verify that the timer is increased by 5 using up() in SetTimer")
+  void testSetTimerUp() {
+    context.tick();
+    context.right();
+
+    context.tick();
+    assertEquals(SetTimer.Instance(), context.currentState);
+    context.up();
+    assertEquals(6, AbstractTimer.getMemTimer());
+
+  }
+
+  @Test
   @DisplayName("Verify that the Timer starts in the Idle state with zeroed values")
   void testInitialState() {
     /*
